@@ -264,7 +264,6 @@ class _InputPageState extends State<InputPage> {
                                   icon: FontAwesomeIcons.minus,
                                   callback: killGesture,
                                 ),
-                               ),
                                 SizedBox(
                                   width: 10,
                                 ),

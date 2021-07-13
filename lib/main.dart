@@ -9,7 +9,7 @@ class BMICalculator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var arg = ModalRoute.of(context)!.settings.arguments as Map;
+    var arg = ModalRoute.of(context)?.settings.arguments as Map?;
 
     return MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -21,9 +21,9 @@ class BMICalculator extends StatelessWidget {
         routes: {
           '/': (context) => InputPage(),
           '/results': (context) => ResultsPage(
-                bmiResult: arg?['bmiResult'] ?? "Poop1",
-                resultText: arg?['resultText'] ?? "Poop2",
-                interpretation: arg?['interpretation'] ?? "Poop3",
+                bmiResult: arg?['bmiResult'] ?? "oops1",
+                resultText: arg?['resultText'] ?? "oops2",
+                interpretation: arg?['interpretation'] ?? "oops3",
               ),
         });
   }
