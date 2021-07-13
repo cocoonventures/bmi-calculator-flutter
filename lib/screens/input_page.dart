@@ -6,7 +6,7 @@ import '../ui/rounded_card.dart';
 import '../ui/labeled_icon.dart';
 import '../ui/constants.dart';
 import '../ui/round_icon_button.dart';
-import '../ui/bottom_button.dart';
+// import '../ui/bottom_button.dart';
 import '../calculator_brain.dart';
 import 'results_page.dart';
 
@@ -280,8 +280,28 @@ class _InputPageState extends State<InputPage> {
                 ],
               ),
             ),
-            BottomButton(
-              buttonTitle: "CALCULATE BMI",
+            // -----------------------------------------------------------------
+            // original item not working
+            // -----------------------------------------------------------------
+            // BottomButton(
+            //   buttonTitle: "CALCULATE BMI",
+            //   onTap: () {
+            //     CalculatorBrain calc =
+            //         CalculatorBrain(height: _height, weight: _weight);
+            //     Navigator.pushNamed(
+            //       context,
+            //       ResultsPage.routeName,
+            //       arguments: {
+            //         'bmiResult': "NOT null!", //calc.calculateBMI(),
+            //         'resultText': calc.getResult(),
+            //         'interpretation': calc.getInterpretation(),
+            //       },
+            //     );
+            //   },
+            // ),
+            // -----------------------------------------------------------------
+
+            GestureDetector(
               onTap: () {
                 CalculatorBrain calc =
                     CalculatorBrain(height: _height, weight: _weight);
@@ -295,6 +315,20 @@ class _InputPageState extends State<InputPage> {
                   },
                 );
               },
+              child: Container(
+                  color: kBottomContainerColor,
+                  margin: EdgeInsets.only(top: 10.0),
+                  width: double.infinity,
+                  height: kBottomContainerHeight,
+                  padding: EdgeInsets.only(bottom: 10.0),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "CALCULATE BMI",
+                      style: kButtonTextStyle,
+                      textAlign: TextAlign.center,
+                    ),
+                  )),
             ),
           ]),
     );

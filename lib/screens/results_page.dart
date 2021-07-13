@@ -5,20 +5,26 @@ import '../ui/constants.dart';
 import '../ui/bottom_button.dart';
 
 class ResultsPage extends StatelessWidget {
-  ResultsPage({
-    required this.bmiResult,
-    required this.resultText,
-    required this.interpretation,
-  });
+  // ResultsPage({
+  //   required this.bmiResult,
+  //   required this.resultText,
+  //   required this.interpretation,
+  // });
 
   static const routeName = '/results';
 
-  final String bmiResult;
-  final String resultText;
-  final String interpretation;
+  late String bmiResult;
+  late String resultText;
+  late String interpretation;
 
   @override
   Widget build(BuildContext context) {
+    final arg = ModalRoute.of(context)!.settings.arguments as Map;
+
+    bmiResult = arg['bmiResult'];
+    resultText = arg['resultText'];
+    interpretation = arg['interpretation'];
+
     return Scaffold(
       appBar: AppBar(
         title: Text("BMI CALCULATOR"),
